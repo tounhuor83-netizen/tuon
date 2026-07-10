@@ -142,7 +142,8 @@
             margin-bottom: 24px;
             animation: fadeInDown 0.8s ease;
         }
-[7/10/26 10:30 AM] ទួន ហួ: .hero h1 {
+
+        .hero h1 {
             font-size: clamp(48px, 8vw, 96px);
             font-weight: 900;
             letter-spacing: -3px;
@@ -293,7 +294,8 @@
             color: var(--accent);
             margin-bottom: 12px;
         }
-[7/10/26 10:30 AM] ទួន ហួ: .section-title {
+
+        .section-title {
             font-size: clamp(32px, 4vw, 56px);
             font-weight: 800;
             letter-spacing: -2px;
@@ -440,7 +442,8 @@
             border-radius: 100px;
             border: 1px solid rgba(255,255,255,0.06);
         }
-[7/10/26 10:30 AM] ទួន ហួ: .product-bottom {
+
+        .product-bottom {
             display: flex;
             align-items: center;
             justify-content: space-between;
@@ -596,7 +599,8 @@
             font-size: 17px;
             margin-bottom: 40px;
         }
-[7/10/26 10:30 AM] ទួន ហួ: /* Footer */
+
+        /* Footer */
         footer {
             border-top: 1px solid rgba(255,255,255,0.06);
             padding: 48px 40px;
@@ -726,7 +730,8 @@
         <div class="cart-count">0</div>
     </div>
 </nav>
-[7/10/26 10:30 AM] ទួន ហួ: <!-- Hero -->
+
+<!-- Hero -->
 <section class="hero">
     <div class="hero-badge">✦ iPhone 16 Pro Now Available</div>
     <h1>iPhone built<br><span class="gradient">for the future.</span></h1>
@@ -813,7 +818,8 @@
                 <button class="btn-buy" onclick="addToCart('iPhone 16 Pro')">Buy</button>
             </div>
         </div>
-[7/10/26 10:30 AM] ទួន ហួ: <div class="product-card reveal">
+
+        <div class="product-card reveal">
             <span class="product-tag tag-pro">Best</span>
             <div class="product-name">iPhone 16 Pro Max</div>
             <div class="product-sub">A18 Pro · 6.9" Display</div>
@@ -859,7 +865,7 @@
 
     <div class="features-grid reveal">
         <div class="feature">
-            <div class="feature-icon" style="background:rgba(41,151,255,0.1)">⚡️</div>
+            <div class="feature-icon" style="background:rgba(41,151,255,0.1)">⚡</div>
             <h3>A18 Pro Chip</h3>
             <p>The fastest chip ever in a smartphone. 6-core GPU. 2x faster ray tracing.</p>
         </div>
@@ -869,7 +875,7 @@
             <p>5x optical zoom. 4K Dolby Vision. Photonic Engine for stunning low-light shots.</p>
         </div>
         <div class="feature">
-            <div class="feature-icon" style="background:rgba(192,132,252,0.1)">🛡</div>
+            <div class="feature-icon" style="background:rgba(192,132,252,0.1)">🛡️</div>
             <h3>Titanium Design</h3>
             <p>Grade 5 titanium. Lighter than ever. Ceramic Shield front. IP68 water resistant.</p>
         </div>
@@ -890,7 +896,8 @@
         </div>
     </div>
 </section>
-[7/10/26 10:30 AM] ទួន ហួ: <!-- Colors -->
+
+<!-- Colors -->
 <section id="colors" class="colors-section">
     <div class="reveal">
         <div class="section-label">Finishes</div>
@@ -967,7 +974,7 @@
         <div class="footer-social">
             <a href="#">𝕏</a>
             <a href="#">📷</a>
-            <a href="#">▶️</a>
+            <a href="#">▶</a>
             <a href="#">◄</a>
         </div>
     </div>
@@ -989,7 +996,8 @@
             btn.style.background = 'var(--accent)';
         }, 1500);
     }
-[7/10/26 10:30 AM] ទួន ហួ: // Color selector
+
+    // Color selector
     function selectColor(el, name) {
         document.querySelectorAll('.color-option').forEach(c => c.classList.remove('active'));
         el.classList.add('active');
