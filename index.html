@@ -1,0 +1,1028 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>iPhone Store — Premium Apple Devices</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg: #000000;
+            --bg2: #0a0a0a;
+            --bg3: #111111;
+            --text: #ffffff;
+            --text2: #a1a1a6;
+            --accent: #2997ff;
+            --accent2: #0071e3;
+            --gold: #c4a962;
+            --titanium: #86868b;
+            --green: #30d158;
+            --red: #ff453a;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            overflow-x: hidden;
+            line-height: 1.5;
+        }
+
+        /* Scrollbar */
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: var(--bg); }
+        ::-webkit-scrollbar-thumb { background: #333; border-radius: 3px; }
+
+        /* Nav */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(0,0,0,0.8);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+            padding: 0 40px;
+            height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .nav-logo {
+            font-weight: 700;
+            font-size: 18px;
+            letter-spacing: -0.5px;
+        }
+
+        .nav-logo span { color: var(--accent); }
+
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text2);
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 400;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover { color: var(--text); }
+
+        .nav-cart {
+            position: relative;
+            cursor: pointer;
+        }
+
+        .nav-cart svg { width: 18px; height: 18px; fill: var(--text2); }
+        .cart-count {
+            position: absolute;
+            top: -6px;
+            right: -8px;
+            background: var(--accent);
+            color: white;
+            font-size: 9px;
+            font-weight: 700;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Hero */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 120px 20px 80px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 800px;
+            height: 800px;
+            background: radial-gradient(circle, rgba(41,151,255,0.08) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(41,151,255,0.1);
+            border: 1px solid rgba(41,151,255,0.2);
+            padding: 6px 16px;
+            border-radius: 100px;
+            font-size: 12px;
+            font-weight: 500;
+            color: var(--accent);
+            margin-bottom: 24px;
+            animation: fadeInDown 0.8s ease;
+        }
+[7/10/26 10:30 AM] ទួន ហួ: .hero h1 {
+            font-size: clamp(48px, 8vw, 96px);
+            font-weight: 900;
+            letter-spacing: -3px;
+            line-height: 1;
+            margin-bottom: 20px;
+            animation: fadeInUp 1s ease;
+        }
+
+        .hero h1 .gradient {
+            background: linear-gradient(135deg, var(--accent), #a855f7, var(--gold));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero p {
+            font-size: 18px;
+            color: var(--text2);
+            max-width: 500px;
+            margin-bottom: 40px;
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 16px;
+            animation: fadeInUp 1s ease 0.4s both;
+        }
+
+        .btn {
+            padding: 14px 32px;
+            border-radius: 980px;
+            font-size: 15px;
+            font-weight: 600;
+            text-decoration: none;
+            cursor: pointer;
+            border: none;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-primary {
+            background: var(--accent);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: var(--accent2);
+            transform: scale(1.02);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--accent);
+            border: 1px solid rgba(41,151,255,0.3);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(41,151,255,0.1);
+        }
+
+        .hero-phone {
+            margin-top: 60px;
+            width: 280px;
+            height: 560px;
+            background: linear-gradient(145deg, #1a1a1a, #0d0d0d);
+            border-radius: 50px;
+            border: 3px solid #333;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 40px 80px rgba(0,0,0,0.6), 0 0 0 1px rgba(255,255,255,0.05);
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .hero-phone::before {
+            content: '';
+            position: absolute;
+            top: 12px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 120px;
+            height: 32px;
+            background: #000;
+            border-radius: 20px;
+            z-index: 2;
+        }
+
+        .hero-phone-screen {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(180deg, #1c1c3a 0%, #0d0d2b 50%, #000 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero-phone-screen .time {
+            font-size: 64px;
+            font-weight: 200;
+            letter-spacing: -2px;
+        }
+
+        .hero-phone-screen .date {
+            font-size: 14px;
+            color: var(--text2);
+            margin-top: 4px;
+        }
+
+        /* Marquee */
+        .marquee {
+            border-top: 1px solid rgba(255,255,255,0.06);
+            border-bottom: 1px solid rgba(255,255,255,0.06);
+            padding: 14px 0;
+            overflow: hidden;
+            white-space: nowrap;
+        }
+
+        .marquee-inner {
+            display: inline-flex;
+            gap: 60px;
+            animation: scroll 20s linear infinite;
+        }
+
+        .marquee-inner span {
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--text2);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .marquee-inner span b { color: var(--text); font-weight: 700; }
+
+        /* Section */
+        section {
+            padding: 100px 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-label {
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: var(--accent);
+            margin-bottom: 12px;
+        }
+[7/10/26 10:30 AM] ទួន ហួ: .section-title {
+            font-size: clamp(32px, 4vw, 56px);
+            font-weight: 800;
+            letter-spacing: -2px;
+            margin-bottom: 16px;
+            line-height: 1.1;
+        }
+
+        .section-sub {
+            font-size: 16px;
+            color: var(--text2);
+            max-width: 500px;
+            margin-bottom: 60px;
+        }
+
+        /* Products Grid */
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+        }
+
+        .product-card {
+            background: var(--bg2);
+            border: 1px solid rgba(255,255,255,0.06);
+            border-radius: 24px;
+            padding: 40px 32px;
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .product-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--accent), transparent);
+            opacity: 0;
+            transition: opacity 0.4s;
+        }
+
+        .product-card:hover {
+            border-color: rgba(41,151,255,0.2);
+            transform: translateY(-4px);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+        }
+
+        .product-card:hover::before { opacity: 1; }
+
+        .product-tag {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 100px;
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 24px;
+        }
+
+        .tag-new { background: rgba(41,151,255,0.15); color: var(--accent); }
+        .tag-popular { background: rgba(192,132,252,0.15); color: #a855f7; }
+        .tag-pro { background: rgba(196,169,98,0.15); color: var(--gold); }
+
+        .product-name {
+            font-size: 28px;
+            font-weight: 800;
+            letter-spacing: -1px;
+            margin-bottom: 4px;
+        }
+
+        .product-sub {
+            font-size: 14px;
+            color: var(--text2);
+            margin-bottom: 28px;
+        }
+
+        .product-phone {
+            width: 140px;
+            height: 280px;
+            margin: 0 auto 28px;
+            border-radius: 30px;
+            border: 2px solid #333;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .product-phone::before {
+            content: '';
+            position: absolute;
+            top: 8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 18px;
+            background: inherit;
+            border-radius: 12px;
+            filter: brightness(0.5);
+        }
+
+        .phone-15pro {
+            background: linear-gradient(145deg, #2a2a2a, #1a1a1a);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+        }
+
+        .phone-16pro {
+            background: linear-gradient(145deg, #3a3530, #2a2520);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+        }
+
+        .phone-16promax {
+            background: linear-gradient(145deg, #e8e0d0, #c4b89a);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+        }
+
+        .phone-se {
+            background: linear-gradient(145deg, #1a2a3a, #0d1a2a);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+        }
+
+        .phone-icon {
+            font-size: 48px;
+            opacity: 0.3;
+        }
+
+        .product-specs {
+            display: flex;
+            gap: 16px;
+            margin-bottom: 24px;
+            flex-wrap: wrap;
+        }
+
+        .spec {
+            font-size: 11px;
+            color: var(--text2);
+            background: rgba(255,255,255,0.04);
+            padding: 6px 12px;
+            border-radius: 100px;
+            border: 1px solid rgba(255,255,255,0.06);
+        }
+[7/10/26 10:30 AM] ទួន ហួ: .product-bottom {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .product-price {
+            font-size: 24px;
+            font-weight: 700;
+            letter-spacing: -1px;
+        }
+
+        .product-price small {
+            font-size: 13px;
+            font-weight: 400;
+            color: var(--text2);
+            text-decoration: line-through;
+            margin-left: 8px;
+        }
+
+        .btn-buy {
+            padding: 10px 24px;
+            background: var(--accent);
+            color: white;
+            border: none;
+            border-radius: 980px;
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .btn-buy:hover {
+            background: var(--accent2);
+            transform: scale(1.05);
+        }
+
+        /* Features */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2px;
+            background: rgba(255,255,255,0.04);
+            border-radius: 24px;
+            overflow: hidden;
+            margin-top: 60px;
+        }
+
+        .feature {
+            background: var(--bg2);
+            padding: 48px 32px;
+            transition: background 0.3s;
+        }
+
+        .feature:hover { background: var(--bg3); }
+
+        .feature-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+            margin-bottom: 20px;
+        }
+
+        .feature h3 {
+            font-size: 17px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .feature p {
+            font-size: 13px;
+            color: var(--text2);
+            line-height: 1.6;
+        }
+
+        /* Colors Section */
+        .colors-section {
+            text-align: center;
+        }
+
+        .colors-row {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin: 40px 0;
+        }
+
+        .color-option {
+            width: 64px;
+            height: 64px;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: all 0.3s;
+            border: 3px solid transparent;
+            position: relative;
+        }
+
+        .color-option:hover,
+        .color-option.active {
+            transform: scale(1.15);
+            border-color: var(--accent);
+        }
+
+        .color-name {
+            font-size: 14px;
+            color: var(--text2);
+            margin-top: 8px;
+            transition: color 0.3s;
+        }
+
+        .color-option.active + .color-name,
+        .color-option:hover + .color-name {
+            color: var(--text);
+        }
+
+        .color-black { background: #1a1a1a; }
+        .color-white { background: #f5f5f7; }
+        .color-titanium { background: linear-gradient(135deg, #86868b, #6e6e73); }
+        .color-gold { background: linear-gradient(135deg, #e8d5a3, #c4a962); }
+        .color-blue { background: linear-gradient(135deg, #394e6a, #2a3d56); }
+
+        /* CTA */
+        .cta {
+            text-align: center;
+            padding: 120px 40px;
+            position: relative;
+        }
+
+        .cta::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(41,151,255,0.06) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .cta h2 {
+            font-size: clamp(36px, 5vw, 64px);
+            font-weight: 900;
+            letter-spacing: -2px;
+            margin-bottom: 16px;
+        }
+
+        .cta p {
+            color: var(--text2);
+            font-size: 17px;
+            margin-bottom: 40px;
+        }
+[7/10/26 10:30 AM] ទួន ហួ: /* Footer */
+        footer {
+            border-top: 1px solid rgba(255,255,255,0.06);
+            padding: 48px 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-brand p {
+            color: var(--text2);
+            font-size: 13px;
+            margin-top: 12px;
+            line-height: 1.7;
+        }
+
+        .footer-col h4 {
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--text2);
+            margin-bottom: 16px;
+        }
+
+        .footer-col a {
+            display: block;
+            color: var(--text2);
+            text-decoration: none;
+            font-size: 13px;
+            padding: 4px 0;
+            transition: color 0.3s;
+        }
+
+        .footer-col a:hover { color: var(--text); }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.06);
+            padding-top: 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer-bottom p {
+            font-size: 12px;
+            color: var(--text2);
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 16px;
+        }
+
+        .footer-social a {
+            color: var(--text2);
+            text-decoration: none;
+            font-size: 18px;
+            transition: color 0.3s;
+        }
+
+        .footer-social a:hover { color: var(--text); }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        @keyframes scroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            nav { padding: 0 20px; }
+            .nav-links { display: none; }
+            section { padding: 60px 20px; }
+            .products-grid { grid-template-columns: 1fr; }
+            .footer-grid { grid-template-columns: 1fr 1fr; }
+            .hero-buttons { flex-direction: column; align-items: center; }
+            .colors-row { gap: 12px; }
+            .color-option { width: 48px; height: 48px; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Nav -->
+<nav>
+    <div class="nav-logo">i<span>Store</span></div>
+    <ul class="nav-links">
+        <li><a href="#products">Products</a></li>
+        <li><a href="#features">Features</a></li>
+        <li><a href="#colors">Colors</a></li>
+        <li><a href="#contact">Contact</a></li>
+    </ul>
+    <div class="nav-cart">
+        <svg viewBox="0 0 24 24"><path d="M7 18c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm10 0c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zM7.16 14.26l.04-.12.94-1.7h7.45c.75 0 1.41-.41 1.75-1.03l3.86-7.01L19.42 4h-.01l-1.1 2-2.76 5H8.53l-.13-.27L6.16 6l-.95-2-.94-2H1v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25z"/></svg>
+        <div class="cart-count">0</div>
+    </div>
+</nav>
+[7/10/26 10:30 AM] ទួន ហួ: <!-- Hero -->
+<section class="hero">
+    <div class="hero-badge">✦ iPhone 16 Pro Now Available</div>
+    <h1>iPhone built<br><span class="gradient">for the future.</span></h1>
+    <p>The most advanced iPhone ever. Titanium design. A18 Pro chip. Camera that redefines photography.</p>
+    <div class="hero-buttons">
+        <a href="#products" class="btn btn-primary">Shop Now →</a>
+        <a href="#features" class="btn btn-secondary">Learn More</a>
+    </div>
+    <div class="hero-phone">
+        <div class="hero-phone-screen">
+            <div style="text-align:center">
+                <div class="time">9:41</div>
+                <div class="date">Monday, January 6</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Marquee -->
+<div class="marquee">
+    <div class="marquee-inner">
+        <span><b>Free Shipping</b> Worldwide</span>
+        <span>★</span>
+        <span><b>1 Year Warranty</b> Official</span>
+        <span>★</span>
+        <span><b>Trade In</b> Get Credit</span>
+        <span>★</span>
+        <span><b>0% APR</b> Financing</span>
+        <span>★</span>
+        <span><b>Apple Care+</b> Available</span>
+        <span>★</span>
+        <span><b>Free Shipping</b> Worldwide</span>
+        <span>★</span>
+        <span><b>1 Year Warranty</b> Official</span>
+        <span>★</span>
+        <span><b>Trade In</b> Get Credit</span>
+        <span>★</span>
+        <span><b>0% APR</b> Financing</span>
+        <span>★</span>
+        <span><b>Apple Care+</b> Available</span>
+        <span>★</span>
+    </div>
+</div>
+
+<!-- Products -->
+<section id="products">
+    <div class="reveal">
+        <div class="section-label">Shop</div>
+        <div class="section-title">Choose your iPhone.</div>
+        <div class="section-sub">Every model packed with power. Pick the one that speaks to you.</div>
+    </div>
+
+    <div class="products-grid">
+        <div class="product-card reveal">
+            <span class="product-tag tag-popular">Popular</span>
+            <div class="product-name">iPhone 15 Pro</div>
+            <div class="product-sub">A17 Pro · 6.1" Display</div>
+            <div class="product-phone phone-15pro"><span class="phone-icon">📱</span></div>
+            <div class="product-specs">
+                <span class="spec">128GB</span>
+                <span class="spec">A17 Pro</span>
+                <span class="spec">48MP</span>
+                <span class="spec">USB-C</span>
+            </div>
+            <div class="product-bottom">
+                <div class="product-price">$899 <small>$999</small></div>
+                <button class="btn-buy" onclick="addToCart('iPhone 15 Pro')">Buy</button>
+            </div>
+        </div>
+
+        <div class="product-card reveal">
+            <span class="product-tag tag-new">New</span>
+            <div class="product-name">iPhone 16 Pro</div>
+            <div class="product-sub">A18 Pro · 6.3" Display</div>
+            <div class="product-phone phone-16pro"><span class="phone-icon">📱</span></div>
+            <div class="product-specs">
+                <span class="spec">256GB</span>
+                <span class="spec">A18 Pro</span>
+                <span class="spec">48MP</span>
+                <span class="spec">5x Zoom</span>
+            </div>
+            <div class="product-bottom">
+                <div class="product-price">$1,099 <small>$1,199</small></div>
+                <button class="btn-buy" onclick="addToCart('iPhone 16 Pro')">Buy</button>
+            </div>
+        </div>
+[7/10/26 10:30 AM] ទួន ហួ: <div class="product-card reveal">
+            <span class="product-tag tag-pro">Best</span>
+            <div class="product-name">iPhone 16 Pro Max</div>
+            <div class="product-sub">A18 Pro · 6.9" Display</div>
+            <div class="product-phone phone-16promax"><span class="phone-icon">📱</span></div>
+            <div class="product-specs">
+                <span class="spec">512GB</span>
+                <span class="spec">A18 Pro</span>
+                <span class="spec">48MP</span>
+                <span class="spec">5x Zoom</span>
+            </div>
+            <div class="product-bottom">
+                <div class="product-price">$1,399 <small>$1,499</small></div>
+                <button class="btn-buy" onclick="addToCart('iPhone 16 Pro Max')">Buy</button>
+            </div>
+        </div>
+
+        <div class="product-card reveal">
+            <span class="product-tag tag-new">New</span>
+            <div class="product-name">iPhone SE 4</div>
+            <div class="product-sub">A18 · 6.1" Display</div>
+            <div class="product-phone phone-se"><span class="phone-icon">📱</span></div>
+            <div class="product-specs">
+                <span class="spec">128GB</span>
+                <span class="spec">A18</span>
+                <span class="spec">48MP</span>
+                <span class="spec">USB-C</span>
+            </div>
+            <div class="product-bottom">
+                <div class="product-price">$499 <small>$599</small></div>
+                <button class="btn-buy" onclick="addToCart('iPhone SE 4')">Buy</button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Features -->
+<section id="features">
+    <div class="reveal">
+        <div class="section-label">Why iPhone</div>
+        <div class="section-title">Built different.</div>
+        <div class="section-sub">Everything you need. Nothing you don't.</div>
+    </div>
+
+    <div class="features-grid reveal">
+        <div class="feature">
+            <div class="feature-icon" style="background:rgba(41,151,255,0.1)">⚡️</div>
+            <h3>A18 Pro Chip</h3>
+            <p>The fastest chip ever in a smartphone. 6-core GPU. 2x faster ray tracing.</p>
+        </div>
+        <div class="feature">
+            <div class="feature-icon" style="background:rgba(48,209,88,0.1)">📷</div>
+            <h3>48MP Camera</h3>
+            <p>5x optical zoom. 4K Dolby Vision. Photonic Engine for stunning low-light shots.</p>
+        </div>
+        <div class="feature">
+            <div class="feature-icon" style="background:rgba(192,132,252,0.1)">🛡</div>
+            <h3>Titanium Design</h3>
+            <p>Grade 5 titanium. Lighter than ever. Ceramic Shield front. IP68 water resistant.</p>
+        </div>
+        <div class="feature">
+            <div class="feature-icon" style="background:rgba(196,169,98,0.1)">🔋</div>
+            <h3>All-Day Battery</h3>
+            <p>Up to 29 hours video playback. MagSafe charging. USB-C fast charge.</p>
+        </div>
+        <div class="feature">
+            <div class="feature-icon" style="background:rgba(255,69,58,0.1)">🤖</div>
+            <h3>Apple Intelligence</h3>
+            <p>On-device AI. Writing tools. Image Playground. Siri powered by large language models.</p>
+        </div>
+        <div class="feature">
+            <div class="feature-icon" style="background:rgba(41,151,255,0.1)">🔒</div>
+            <h3>Privacy First</h3>
+            <p>Face ID. End-to-end encrypted iMessage. App Tracking Transparency built in.</p>
+        </div>
+    </div>
+</section>
+[7/10/26 10:30 AM] ទួន ហួ: <!-- Colors -->
+<section id="colors" class="colors-section">
+    <div class="reveal">
+        <div class="section-label">Finishes</div>
+        <div class="section-title">Find your color.</div>
+        <div class="section-sub" style="margin:0 auto 20px">Five stunning titanium finishes.</div>
+    </div>
+    <div class="colors-row reveal">
+        <div style="text-align:center">
+            <div class="color-option color-black active" onclick="selectColor(this, 'Black Titanium')"></div>
+            <div class="color-name">Black Titanium</div>
+        </div>
+        <div style="text-align:center">
+            <div class="color-option color-white" onclick="selectColor(this, 'White Titanium')"></div>
+            <div class="color-name">White Titanium</div>
+        </div>
+        <div style="text-align:center">
+            <div class="color-option color-titanium" onclick="selectColor(this, 'Natural Titanium')"></div>
+            <div class="color-name">Natural Titanium</div>
+        </div>
+        <div style="text-align:center">
+            <div class="color-option color-gold" onclick="selectColor(this, 'Desert Titanium')"></div>
+            <div class="color-name">Desert Titanium</div>
+        </div>
+        <div style="text-align:center">
+            <div class="color-option color-blue" onclick="selectColor(this, 'Blue Titanium')"></div>
+            <div class="color-name">Blue Titanium</div>
+        </div>
+    </div>
+    <div id="color-display" class="reveal" style="font-size:18px;font-weight:600;margin-top:20px;transition:all 0.3s;">Black Titanium</div>
+</section>
+
+<!-- CTA -->
+<section class="cta">
+    <div class="reveal">
+        <h2>Ready to upgrade?</h2>
+        <p>Trade in your old iPhone and get up to $650 in credit.</p>
+        <a href="#products" class="btn btn-primary" style="font-size:17px;padding:18px 40px;">Get Started →</a>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer id="contact">
+    <div class="footer-grid">
+        <div class="footer-brand">
+            <div class="nav-logo">i<span>Store</span></div>
+            <p>Premium Apple products at the best prices. Authorized reseller with official warranty and support.</p>
+        </div>
+        <div class="footer-col">
+            <h4>Products</h4>
+            <a href="#">iPhone 16 Pro</a>
+            <a href="#">iPhone 16 Pro Max</a>
+            <a href="#">iPhone 15 Pro</a>
+            <a href="#">iPhone SE 4</a>
+            <a href="#">Accessories</a>
+        </div>
+        <div class="footer-col">
+            <h4>Support</h4>
+            <a href="#">Help Center</a>
+            <a href="#">Warranty</a>
+            <a href="#">Returns</a>
+            <a href="#">Shipping</a>
+            <a href="#">Contact Us</a>
+        </div>
+        <div class="footer-col">
+            <h4>Company</h4>
+            <a href="#">About</a>
+            <a href="#">Careers</a>
+            <a href="#">Privacy</a>
+            <a href="#">Terms</a>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>© 2025 iStore. All rights reserved. Not affiliated with Apple Inc.</p>
+        <div class="footer-social">
+            <a href="#">𝕏</a>
+            <a href="#">📷</a>
+            <a href="#">▶️</a>
+            <a href="#">◄</a>
+        </div>
+    </div>
+</footer>
+
+<script>
+    // Cart
+    let cartCount = 0;
+    function addToCart(name) {
+        cartCount++;
+        document.querySelector('.cart-count').textContent = cartCount;
+        
+        const btn = event.target;
+        btn.textContent = '✓ Added';
+        btn.style.background = 'var(--green)';
+        
+        setTimeout(() => {
+            btn.textContent = 'Buy';
+            btn.style.background = 'var(--accent)';
+        }, 1500);
+    }
+[7/10/26 10:30 AM] ទួន ហួ: // Color selector
+    function selectColor(el, name) {
+        document.querySelectorAll('.color-option').forEach(c => c.classList.remove('active'));
+        el.classList.add('active');
+        const display = document.getElementById('color-display');
+        display.style.opacity = 0;
+        setTimeout(() => {
+            display.textContent = name;
+            display.style.opacity = 1;
+        }, 200);
+    }
+
+    // Scroll reveal
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    // Smooth scroll
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        });
+    });
+</script>
+
+</body>
+</html>
